@@ -49,6 +49,8 @@ public class SecurityConfig {
                     "/api/categories/**").permitAll()
                 .requestMatchers(HttpMethod.GET,
                     "/api/community-posts/**").permitAll()
+                    .requestMatchers(HttpMethod.GET,
+                     "/api/articles/*/summary").permitAll()
                 .requestMatchers(HttpMethod.POST,
                     "/api/articles/fetch")
                     .hasAuthority("ROLE_ADMIN")
