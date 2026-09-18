@@ -1,6 +1,7 @@
 // CommunityPostController.java
 package com.techpulse.delivery.controller;
-
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import com.techpulse.delivery.model.User;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +46,10 @@ public class CommunityPostController {
     // Any user submits a new post — starts as PENDING
     @PostMapping
     public ResponseEntity<CommunityPost> submitPost(
-            @RequestBody CommunityPost post) {
+            @RequestBody CommunityPost post,
+             @AuthenticationPrincipal User user) {
         return ResponseEntity.ok(
-            communityPostService.submitPost(post));
+            communityPostService.submitPost(post,user));
     }
 
     // PUT http://localhost:8080/api/community-posts/1/status?status=APPROVED
