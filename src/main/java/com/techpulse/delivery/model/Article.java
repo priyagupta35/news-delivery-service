@@ -39,14 +39,12 @@ public class Article {
     private Source source;
 
     // Plain String — matches ENUM column in MySQL directly
-    @Column(name = "type",
-        columnDefinition = "ENUM('EXTERNAL','COMMUNITY')")
-    private String type;
+   @Column(nullable = false)
+private String type;
 
     // Plain String — matches ENUM column in MySQL directly
-    @Column(name = "status",
-        columnDefinition = "ENUM('PENDING','APPROVED','REJECTED')")
-    private String status;
+    @Column(nullable=false)
+        private String status;
 
     public Article() {}
 

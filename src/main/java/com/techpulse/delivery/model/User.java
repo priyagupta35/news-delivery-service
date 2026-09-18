@@ -32,11 +32,8 @@ public class User implements UserDetails {
     private String password;
 
     // Plain String — no enum, no @Enumerated
-    // Matches the ENUM column in MySQL directly
-    @Column(name = "role",
-        columnDefinition = "ENUM('READER','CONTRIBUTOR','ADMIN')")
-    private String role;
-
+    @Column(name = "role", nullable = false)
+      private String role;
     public User() {}
 
     public User(String username, String email,

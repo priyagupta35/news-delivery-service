@@ -32,7 +32,7 @@ public class CommunityPost {
     private Category category;
 
 
-    @Column(name = "status",columnDefinition="ENUM('PENDING','APPROVED','REJECTED')")
+    @Column(nullable=false)
     private String status;
 
     public CommunityPost() {}

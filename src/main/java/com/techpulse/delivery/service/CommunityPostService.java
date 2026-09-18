@@ -2,7 +2,7 @@ package com.techpulse.delivery.service;
 
 import java.util.List;
 import java.util.Optional;
-
+import com.techpulse.delivery.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +39,26 @@ public class CommunityPostService {
         return post;
     }
 
-    public CommunityPost submitPost(CommunityPost post) {
-        logger.info("New community post submission: {}", post.getTitle());
-        post.setStatus("PENDING");
-        CommunityPost saved = communityPostRepository.save(post);
-        logger.info("Community post saved with id: {} and status PENDING",
-            saved.getId());
-        return saved;
-    }
+   public CommunityPost submitPost(
+        CommunityPost post, User user) {
+
+    logger.info("New community post submission: {}",
+        post.getTitle());
+
+    post.setAuthor(user);
+    post.setStatus("PENDING");
+
+    CommunityPost saved =
+        communityPostRepository.save(post);
+
+    logger.info(
+        "Community post saved with id: {} by user: {} and status PENDING",
+        saved.getId(),
+        user.getEmail());
+
+    return saved;
+}
+    
 
     public CommunityPost updatePostStatus(int id, String status) {
         logger.info("Updating community post id: {} to status: {}",
