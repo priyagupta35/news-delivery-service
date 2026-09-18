@@ -3,14 +3,14 @@ server.port=${PORT:8080}
 
 spring.datasource.url=jdbc:postgresql://db.fwadztpgnyifgxjzvezr.supabase.co:5432/postgres
 spring.datasource.username=postgres
-spring.datasource.password=roniya@35
+spring.datasource.password=npg_UTj3XK0SPRhl
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.open-in-view=false
 
-jwt.secret=TechPulseSecretKeyForJWTTokenGenerationAndValidation2026
+jwt.secret=${JWT_SECRET:default-secret-key-32-chars-minimum-for-local}
 jwt.expiration=86400000
 
 ingestion.service.url=https://news-ingestion-service-3.onrender.com
