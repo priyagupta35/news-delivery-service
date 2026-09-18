@@ -1,8 +1,9 @@
 spring.application.name=news-delivery-service
 server.port=${PORT:8080}
 
-spring.datasource.url=jdbc:postgresql://db.fwadztpgnyifgxjzvezr.supabase.co:5432/postgres
-spring.datasource.username=postgres
+spring.datasource.url=jdbc:postgresql://ep-long-field-b33oeg0g-pooler.c-4.ap-southeast-1.aws.neon.tech:5432/neondb?sslmode=require&channel_binding=require
+spring.datasource.username=neondb_owner
+
 spring.datasource.password=npg_UTj3XK0SPRhl
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
