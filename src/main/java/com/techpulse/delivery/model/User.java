@@ -1,11 +1,12 @@
 package com.techpulse.delivery.model;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -43,14 +44,17 @@ public class User implements UserDetails {
         this.password = password;
         this.role = role;
     }
-
+  
+  
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // role is a plain String like "ADMIN" or "CONTRIBUTOR"
         // SimpleGrantedAuthority needs "ROLE_ADMIN" format
         return List.of(new SimpleGrantedAuthority("ROLE_" + role));
     }
-
+    
+    @JsonIgnore
     @Override
     public String getPassword() { return password; }
 
